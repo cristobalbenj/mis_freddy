@@ -1,0 +1,113 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block contenido %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<center>
+    <div class="">    
+        <form action="" id="formularioMisperris" method="POST">
+        {% csrf_token %}
+        <h2>Registro de Usuario</h2><br>
+        <table> 
+               
+               <tr>
+                   <th><label for="txtCorreo"> Correo Electronico </label></th>
+                   <th><input type="email" placeholder="Ej: jav.mif@18gmail.com" id="txtCorreo" name="txtCorreo" value="txtCorreo"></th>
+               </tr>
+               <tr>
+                   <th><label for="txtRun">Run</label></th>
+                   <th><input type="interger" placeholder="Ej: 202225548" id="txtRun" name="txtRun" value="txtRun"></th>
+               </tr>
+               <tr>
+                   <th> <label for="txtNombreCompleto">Nombre Completo</label></th>
+                   <th><input type="text" placeholder="Felipe Bustamante" id="txtNombreCompleto" name="txtNombreCompleto" value='txtN'></th>
+                <tr>
+                    <th><label for="txtTelefono">Telefono</label></th>
+                    <th><input type="number" placeholder="Ej: 99999999" id="txtTelefono" name="txtTelefono" value="txtTelefono"></th>
+                </tr>
+
+                   <th></th>
+               </tr>
+              
+               <tr>
+                   <th><label for="txtFecha">Fecha De Nacimiento</label></th>
+                   <th><input type="date" placeholder="Ej: 1990" id="txtFecha" name="txtFecha" value="txtFecha"></th>
+               </tr>
+
+               <tr>
+                   <th><label for="txtDireccion">Direccion </label></th>
+                   <th><input type="text" placeholder="Ej: olivillo 0436" id="txtDireccion" name="txtDireccion" value="txtDireccion"></th>
+               </tr>
+
+               <tr>
+                   <th><label for="cboGenero">Genero</label>
+                    </th>
+                   <th>
+                       <select name="cboGenero" id="cboGenero">
+                        <option value="">Seleccionar</option>
+                        {% for m in sexoo %}
+                        
+                        <option value="{{m.id}}">{{ m.generoP }}</option>
+
+                        {% endfor %}
+                    </select>
+                </th>
+
+
+               
+
+               <tr>
+                   <th><label for="cboRegion">Region</label>
+                    </th>
+                   <th>
+                       <select name="cboRegion" id="cboRegion">
+                       <option value="">Seleccionar</option>
+                        {% for m in region %}
+                        
+                        <option value="{{m.id}}">{{ m.nombreR }}</option>
+
+                        {% endfor %}
+                    </select>
+                </th>
+            
+               </tr>
+               <tr>
+                   <th><label for="cboCuidad">Cuidad</label></th>
+                   <th>
+                       <select name="cboCuidad" id="cboCuidad">
+                            <option value="">Seleccionar</option>
+                            {% for m in ciudad %}
+                            
+                            <option value="{{m.id}}">{{ m.nombreC }}</option>
+    
+                            {% endfor %}
+                    </select>
+                </th>
+            </tr>
+               <tr>
+                   <th><label for="cboVivienda">Tipo De Vivienda</label>
+                    </th>
+                   <th>
+                       <select name="cboVivienda" id="cboVivienda">
+                        <option value="">Seleccionar</option>
+                        {% for m in vivienda %}
+                        
+                        <option value="{{m.id}}">{{ m.nombreV }}</option>
+
+                        {% endfor %}
+                    </select>
+                </th>
+            </tr>
+               <tr>
+                   <th></th>
+                   <th><input type="submit" value="Guardar" id="btnGuardar" name=" btnGuardar" class="btn btn-success"></th>
+               </tr>
+           </table>
+       </form>
+</div>  
+
+</center>
+
+
+
+{% endblock contenido %}

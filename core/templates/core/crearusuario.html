@@ -1,0 +1,15 @@
+{% block titulo %}
+Formulario Usuario
+{% endblock  %}
+{% block encabezado %}
+<h1>formulario</h1>
+{% endblock  %}
+{% load static %}
+
+{% block contenido %}
+<form id='formulario' method='POST' action=''>{% csrf_token %}
+    <table>{{formulario}}</table>
+    <p><input type='submit' value='registro'></p>
+
+</form>
+{% endblock contenido %}

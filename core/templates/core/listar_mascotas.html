@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<h2>Listado De mascotas</h2><br>
+<table border="style1">
+    <tr>
+        <th>Nombre</th>
+        <th>Raza</th>
+        <th>Genero</th>
+        <th>Fecha Ingreso</th>
+        <th>Fecha Nacimiento</th>
+        <th>Estado</th>
+        <th>Opciones</th>
+    </tr>
+    {% for a in mascotas %}
+    
+    <tr>
+        <td>{{a.nombre}}</td>
+        <td>{{a.raza}}</td>
+        <td>{{a.genero}}</td>
+        <td>{{a.fechaIngreso}}</td>
+        <td>{{a.fechaNacimiento}}</td>
+        <td>{{a.estado}}</td>
+        <td>
+            <a href="{% url 'eliminar_mascota' a.id %}">Eliminar</a>
+            <a href="{% url 'modificar_mascota' a.id %}">Modificar</a>
+        </td>
+    </tr>
+
+    {% endfor %}
+</table>
+
+{% if messages %}
+
+  {% for m in messages %}
+
+  <div>{{ m }}</div>
+
+  {% endfor %}
+
+{% endif %}
+
+{% endblock contenido %}
+
